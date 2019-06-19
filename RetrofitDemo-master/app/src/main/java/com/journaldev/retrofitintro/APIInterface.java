@@ -19,15 +19,15 @@ import retrofit2.http.Query;
 interface APIInterface {
 
     @GET("/api/unknown")
-    Call<MultipleResource> doGetListResources();
+    Call<MultipleResource> callGetRequest();
 
     @POST("/api/users")
-    Call<User> createUser(@Body User user);
+    Call<User> callPostRequest(@Body User user);
 
     @GET("/api/users?")
-    Call<UserList> doGetUserList(@Query("page") String page);
+    Call<UserList> callGetWithParameter(@Query("page") String page);
 
     @FormUrlEncoded
     @POST("/api/users?")
-    Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") String job);
+    Call<UserList> callMultipart(@Field("name") String name, @Field("job") String job);
 }
